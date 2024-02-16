@@ -24,7 +24,7 @@ tr {
 }
 
 tr:nth-child(even) {
-    background-color: #D6EEEE;
+    background-color: #b9d6c1;
 }
 
 .form-select {

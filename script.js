@@ -1,6 +1,3 @@
-let selectedName = document.getElementById("name");
-let selectedUser = document.getElementById("username");
-let selectedEmail = document.getElementById("email");
 
 let mySelect = document.getElementById("mySelect");
 console.log(mySelect.value);
@@ -46,31 +43,39 @@ function createHtml(user) {
     username.innerText = user.username;
     let email = document.createElement("th");
     email.innerText = user.email;
+    let details = document.createElement("th");
+    let detailsBtn = document.createElement("button");
+    detailsBtn.innerText = "Details";
+    detailsBtn.classList.add("btn", "btn-outline-success");
+    detailsBtn.addEventListener("click", () => {
+        userDetails(user.id)
+    })
+    details.appendChild(detailsBtn);
+
 
     tRows.appendChild(id);
     tRows.appendChild(name);
     tRows.appendChild(username);
     tRows.appendChild(email);
+    tRows.appendChild(details);
     tBody.appendChild(tRows);
 }
 
 function search(json) {
     let selectValue = mySelect.value;
     let inputValue = inputSearch.value;
-    if (selectValue === "Name") {
-        let filteredName = json.filter((element) => {
-            return element.name.toLowerCase().includes(inputValue.toLowerCase().trim())
-        })
-        cycleRes(filteredName)
-    } else if (selectValue === "Username") {
-        let filteredUsername = json.filter((element) => {
-            return element.username.toLowerCase().includes(inputValue.toLowerCase().trim())
-        })
-        cycleRes(filteredUsername)
-    } else if (selectValue === "Email") {
-        let filteredEmail = json.filter((element) => {
-            return element.email.toLowerCase().includes(inputValue.toLowerCase().trim())
-        })
-        cycleRes(filteredEmail)
+    if (inputValue === "") {
+        return cycleRes(json)
     }
+    let filteredValue = json.filter((element) => {
+        return element[selectValue.toLowerCase()].toLowerCase().includes(inputValue.toLowerCase().trim())
+    })
+    cycleRes(filteredValue)
 }
+
+function userDetails(userId) {
+    let newPage = "details.html";
+    window.location.href = `${newPage}?id=${userId}`;
+}
+
+window.onload = getFromApi()
