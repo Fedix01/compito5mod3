@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Search table</title>
 </head>
 
@@ -40,23 +41,19 @@
             <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s
                 most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
                 extensive prebuilt components, and powerful JavaScript plugins.</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Nome</a>
-                        <a class="dropdown-item" href="#">Username</a>
-                        <a class="dropdown-item" href="#">Email</a>
-                    </div>
-                </div>
+            <div class="d-flex">
+                <select class="form-select" id="mySelect" aria-label="Default select example">
+                    <option selected>Choose</option>
+                    <option value="Name" id="name">Name</option>
+                    <option value="Username" id="username">Username</option>
+                    <option value="Email" id="email">Email</option>
+                </select>
                 <input class="form-control me-2" id="inputSearch" type="search" placeholder="Search"
                     aria-label="Search">
                 <button class="btn btn-outline-success" id="btnSearch" type="submit">Search</button>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -71,10 +68,8 @@
                         <th>Email</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr id="dynamicRows">
+                <tbody id="dynamicRows">
 
-                    </tr>
                 </tbody>
             </table>
         </div>

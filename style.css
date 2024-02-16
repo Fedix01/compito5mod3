@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+th {
+    background-color: #4287f5;
+}
+
+th,
+td {
+    width: 150px;
+    padding: 5px;
+}
+
+tr {
+    border-bottom: white;
+}
+
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+}
+
+.form-select {
+    width: 50%;
+}
