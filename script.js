@@ -6,6 +6,10 @@ let myBtn = document.getElementById("btnSearch");
 
 let tBody = document.getElementById("dynamicRows");
 
+if (localStorage.getItem("lastSearch") && localStorage.getItem("lastSelect")) {
+    inputSearch.value = localStorage.getItem("lastSearch");
+    mySelect.value = localStorage.getItem("lastSelect")
+}
 
 let endpoint = "https://jsonplaceholder.typicode.com/users";
 
@@ -14,6 +18,9 @@ myBtn.addEventListener("click", () => {
 })
 
 async function getFromApi() {
+    localStorage.setItem("lastSearch", inputSearch.value);
+    localStorage.setItem("lastSelect", mySelect.value);
+
     try {
         const response = await fetch(endpoint);
         const parseBody = await response.json();
